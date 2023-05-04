@@ -4,6 +4,15 @@ from typing import Tuple, List
 
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """appropriate type
+
+    Args:
+        lst (Tuple): list of Tuple
+        factor (int, optional): _description_. Defaults to 2.
+
+    Returns:
+        List: list of values with the appropriate type
+    """
     zoomed_in: List = [
         item for item in lst
         for i in range(factor)
