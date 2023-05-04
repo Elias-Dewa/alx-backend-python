@@ -5,7 +5,7 @@ from typing import Sequence, Any, Union
 
 
 def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
-    """Union values
+    """Union values of any type
 
     Args:
         lst (Sequence[Any]]): any sequence
