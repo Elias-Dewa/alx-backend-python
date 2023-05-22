@@ -18,4 +18,5 @@ class TestGithubOrgClient(unittest.TestCase):
         returns the correct value"""
         test_class = GithubOrgClient(input)
         test_class.org()
+        self.assertEqual(test_class.org(), mock_get.return_value)
         mock_get.assert_called_once_with("https://api.github.com/orgs/"+input)
