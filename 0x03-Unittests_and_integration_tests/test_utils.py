@@ -38,8 +38,9 @@ class TestGetJson(unittest.TestCase):
     ])
     def test_get_json(self, test_url, test_payload, result):
         """Implement method to test that"""
-        result.return_value = test_payload
-        self.assertEqual(get_json(test_url), test_payload)
+        with patch("requests.get") as request:
+            request.return_value = test_payload
+            self.assertEqual(get_json(test_url), test_payload)
 
 
 class TestMemoize(unittest.TestCase):
