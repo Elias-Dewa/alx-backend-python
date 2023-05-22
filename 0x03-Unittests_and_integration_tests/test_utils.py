@@ -39,7 +39,7 @@ class TestGetJson(unittest.TestCase):
     def test_get_json(self, test_url, test_payload):
         """Implement method to test that"""
         with patch("requests.get") as request:
-            request.return_value = test_payload
+            request.json.return_value = test_payload
             self.assertEqual(get_json(test_url), test_payload)
 
 
