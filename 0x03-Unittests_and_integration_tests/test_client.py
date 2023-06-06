@@ -3,7 +3,7 @@
 
 
 import unittest
-from unittest.mock import patch
+from unittest.mock import PropertyMock, patch
 from parameterized import parameterized
 from client import GithubOrgClient
 
@@ -22,3 +22,12 @@ class TestGithubOrgClient(unittest.TestCase):
         test_class.org()
         self.assertEqual(test_class.org, mock_get.return_value)
         mock_get.assert_called_once_with("https://api.github.com/orgs/"+input)
+
+    def test_public_repos_url(self):
+        """Implement the test_public_repos_url method to unit-test"""
+        with patch('MyClass.last_transaction',
+                   new_callable=PropertyMock) as mock_get:
+            mock_get.return_value = payload()
+            my_class = GithubOrgClient()
+            answer = my_class.__public_repos_url
+            mock_get.assert_called_once_with()
